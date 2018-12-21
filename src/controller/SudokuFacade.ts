@@ -2,9 +2,16 @@ import {ISudokuFacade,
     Board, 
     NotSolvedError
 } from "./ISudokuFacade";
+import {BoardGenerator} from "./utilities/BoardGenerator";
 
 
 export class SudokuFacade implements ISudokuFacade {
+
+    private boardGenerator: BoardGenerator;
+
+    constructor() {
+        this.boardGenerator = new BoardGenerator();
+    }
 
     public solveBoard(board: Board): Promise<Board> {
 
@@ -27,7 +34,7 @@ export class SudokuFacade implements ISudokuFacade {
         if(this.isSolved(board)) {
             return board;
         } else {
-            let newBoards = this.nextBoards(board);
+            let newBoards = this.boardGenerator.generateNextBoards(board);
             for(let i = 0; i < newBoards.length; i++) {
                 let tryFirst = this.solve(newBoards[i]);
     
@@ -40,15 +47,16 @@ export class SudokuFacade implements ISudokuFacade {
         }
     }
 
+    /*
+    Produces true when a board is solved
+    */
     private isSolved(board: (number | false)[]): boolean {
-        return false;
+        for(let i = 0; i < board.length; i++) {
+            if(board[i] === false) {
+                return false;
+            }
+        }
+        return true;
     }
-
-    private nextBoards(board: (number | false)[]): any {
-        throw new Error("Method not implemented.");
-    }
-
-
-
 }
 

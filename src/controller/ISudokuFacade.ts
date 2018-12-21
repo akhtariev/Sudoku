@@ -8,7 +8,11 @@ export class NotSolvedError extends Error {
     }
 }
 
-
+export class SudokuError extends Error {
+    constructor(...args: any[]) {
+        super(...args);
+    }
+}
 
 export interface ISudokuFacade {
 
