@@ -1,0 +1,24 @@
+{
+  "name": "sudoku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "tsc --project .",
+    "test:debug": "npm run build && node --inspect-brk node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^3.3.4",
+    "jasmine": "^3.3.1",
+    "nodemon": "^1.18.9",
+    "ts-node": "^7.0.1"
+  },
+  "dependencies": {
+    "typescript": "^3.2.2"
+  }
+}
