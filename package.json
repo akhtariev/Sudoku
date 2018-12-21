@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "dist"
   },
   "scripts": {
     "test": "mocha --require ts-node/register test/**/*.ts"
