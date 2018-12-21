@@ -12,14 +12,14 @@ describe("SudokuFacade solve with various Boards", () => {
     const boards: { [id: string]: Board } = {
         easyGrid :
             {content: [2, 7, 4, E, 9, 1, E, E, 5,
-                1, E, E, 5, E, E, E, 9, E,
-                6, E, E, E, E, 3, 2, 8, E,
-                E, E, 1, 9, E, E, E, E, 8,
-                E, E, 5, 1, E, E, 6, E, E,
-                7, E, E, E, 8, E, E, E, 3,
-                4, E, 2, E, E, E, E, E, 9,
-                E, E, E, E, E, E, E, 7, E,
-                8, E, E, 3, 4, 9, E, E, E]},
+                       1, E, E, 5, E, E, E, 9, E,
+                       6, E, E, E, E, 3, 2, 8, E,
+                       E, E, 1, 9, E, E, E, E, 8,
+                       E, E, 5, 1, E, E, 6, E, E,
+                       7, E, E, E, 8, E, E, E, 3,
+                       4, E, 2, E, E, E, E, E, 9,
+                       E, E, E, E, E, E, E, 7, E,
+                       8, E, E, 3, 4, 9, E, E, E]},
         
         easyGridLast:
                 {content:[2, 7, 4, 8, 9, 1, 3, 6, 5,
@@ -90,9 +90,9 @@ describe("SudokuFacade solve with various Boards", () => {
         try {
             result = await sudokuFacade.solveBoard(toSolve);
             let length: number = toSolve.content.length;
-            expect(result.content.length).to.equal(length * length);
-            for(let cell of result)
-                expect(cell).to.be.equal(E);
+            expect(result.content.length).to.equal(length);
+            for(let cell of result.content)
+                expect(cell).to.not.be.equal(E);
             
         } catch {
             expect.fail("Not expected");
@@ -107,7 +107,7 @@ describe("SudokuFacade solve with various Boards", () => {
         try {
             result = await sudokuFacade.solveBoard(toSolve);
             let length: number = toSolve.content.length;
-            expect(result.content.length).to.equal(length * length);
+            expect(result.content.length).to.equal(length);
             for(let cell of result.content)
                 expect(cell).to.not.be.equal(E);
             
@@ -124,7 +124,7 @@ describe("SudokuFacade solve with various Boards", () => {
         try {
             result = await sudokuFacade.solveBoard(toSolve);
             let length: number = toSolve.content.length;
-            expect(result.content.length).to.equal(length * length);
+            expect(result.content.length).to.equal(length);
             for(let cell of result.content)
                 expect(cell).to.not.equal(E);
             
@@ -169,7 +169,7 @@ describe("SudokuFacade solve with various Boards", () => {
         try {
             result = await sudokuFacade.solveBoard(toSolve);
             let length: number = toSolve.content.length;
-            expect(result.content.length).to.equal(length * length);
+            expect(result.content.length).to.equal(length);
             for(let cell of result.content)
                 expect(cell).to.not.equal(E);
             

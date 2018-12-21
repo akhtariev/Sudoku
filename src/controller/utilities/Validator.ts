@@ -37,9 +37,9 @@ export class Validator {
     
     private isCombinationValid(combination: any): boolean {
 
-        this.removeNotFilled(combination);
+        const onlyNumbers = this.removeNotFilled(combination);
 
-        const hasDuplicates = this.hasDuplicates(combination);
+        const hasDuplicates = this.hasDuplicates(onlyNumbers);
 
         return hasDuplicates;
     }
@@ -98,8 +98,8 @@ export class Validator {
         return column;
     }
 
-    private removeNotFilled(arr: any[]): void {
-        arr.filter(cell => cell !== false);
+    private removeNotFilled(arr: any[]): number[] {
+        return arr.filter(cell => cell !== false);
     }
 
 }
