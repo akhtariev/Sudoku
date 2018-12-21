@@ -5,7 +5,7 @@
         "sourceMap": true,
         "outDir": "./test",
         "types": [
-            "jasmine"
+            "mocha"
           ],
     }
 }

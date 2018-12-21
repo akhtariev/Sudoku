@@ -1,4 +1,4 @@
-import "jasmine";
+import { expect } from 'chai';
 import {ISudokuFacade, 
     Board, 
     NotSolvedError
@@ -67,7 +67,7 @@ describe("SudokuFacade solve with various Boards", () => {
 
     };
 
-    beforeAll(() => {
+    before(() => {
         sudokuFacade =  new SudokuFacade();
     });
 
@@ -80,12 +80,12 @@ describe("SudokuFacade solve with various Boards", () => {
         try {
             result = await sudokuFacade.solveBoard(toSolve);
             let length: number = toSolve.content.length;
-            expect(result.length).toBe(length * length);
+            expect(result.length).to.equal(length * length);
             for(let cell of result)
-                expect(cell).toBeTruthy();
+                expect(cell).to.be.true;
             
         } catch {
-            fail("Not expected");
+            expect.fail("Not expected");
         }
 
     });

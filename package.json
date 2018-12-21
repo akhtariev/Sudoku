@@ -7,14 +7,15 @@
     "test": "test"
   },
   "scripts": {
-    "build": "tsc --project .",
-    "test:debug": "npm run build && node --inspect-brk node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json"
+    "test": "mocha --require ts-node/register test/**/*.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/jasmine": "^3.3.4",
-    "jasmine": "^3.3.1",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
     "ts-node": "^7.0.1"
   },
