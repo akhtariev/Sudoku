@@ -16,14 +16,19 @@ export class SudokuFacade implements ISudokuFacade {
     public solveBoard(board: Board): Promise<Board> {
 
         return new Promise<Board>((resolve, reject) => {
-            let solution: (number | false)[] | false = this.solve(board.content);
-            if (solution) {
-                let result: Board = {content: solution};
-                resolve(result);
-            } else {
-                reject(new NotSolvedError("The solution was not found for a given board"));
-            }
 
+            let solution: (number | false)[] | false;
+            try {
+                solution = this.solve(board.content);
+                if (solution) {
+                    let result: Board = {content: solution};
+                    resolve(result);
+                } else {
+                    reject(new NotSolvedError("The solution was not found for a given board"));
+                }
+            } catch (e) {
+                reject(new NotSolvedError("Invalid input"));
+            }
         });
 
         return null;
@@ -52,7 +57,7 @@ export class SudokuFacade implements ISudokuFacade {
     */
     private isSolved(board: (number | false)[]): boolean {
         for(let i = 0; i < board.length; i++) {
-            if(board[i] === false) {
+            if(board[i] === false || board[i] === 0) {
                 return false;
             }
         }

@@ -44,10 +44,6 @@ export class Validator {
         return hasDuplicates;
     }
 
-    private isColumnValid(board: any, rowNum: number, colNum: number): boolean {
-        throw new Error("Method not implemented.");
-    }
-
     /*
     Check for duplicates in the array 
     */
@@ -99,7 +95,7 @@ export class Validator {
     }
 
     private removeNotFilled(arr: any[]): number[] {
-        return arr.filter(cell => cell !== false);
+        return arr.filter(cell => cell !== false && cell > 0);
     }
 
 }

@@ -33,7 +33,7 @@ export class BoardGenerator {
             return -2;
         }
         for(let i = 0; i <= board.length; i++) {
-            if(board[i] === false) {
+            if(board[i] === false || board[i] === 0) {
                 return i;
             }
         }

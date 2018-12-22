@@ -5,7 +5,14 @@
         "sourceMap": true,
         "outDir": "./dist",
         "types": [
+            "node",
             "mocha"
           ],
-    }
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
